@@ -34,4 +34,8 @@ public class ProductServiceImpl {
         return productRepository.findById(id);
     }
 
+    public Flux<Product> getProductsByCategory(String category) {
+        return productRepository.findByCategory(category);
+    }
+
 }

@@ -14,6 +14,8 @@ public class ProductController {
 
     @Autowired
     private ProductServiceImpl productService;
+//    @Autowired
+//    private ProductRepository productRepository;
 
     @GetMapping("/all")
     public Flux<Product> getAllProducts() {
@@ -22,6 +24,11 @@ public class ProductController {
     @GetMapping("/id")
     public Mono<Product> getProductById(@RequestParam("id")String id) {
         return productService.getProduct(id);
+    }
+
+    @GetMapping("/category")
+    public Flux<Product> getProductsByCategory(@RequestParam("category")String category) {
+        return productService.getProductsByCategory(category);
     }
 
     @PostMapping("/create")
